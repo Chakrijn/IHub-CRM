@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_hub_category">
+    <sys_hub_category action="INSERT_OR_UPDATE">
+        <name>Lead Management</name>
+        <order>100</order>
+        <sys_class_name>sys_hub_category</sys_class_name>
+        <sys_created_by>mohammadik</sys_created_by>
+        <sys_created_on>2019-07-10 11:01:24</sys_created_on>
+        <sys_id>52ea2031db6633403e146583ca9619ed</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Lead Management</sys_name>
+        <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+        <sys_update_name>sys_hub_category_52ea2031db6633403e146583ca9619ed</sys_update_name>
+        <sys_updated_by>mohammadik</sys_updated_by>
+        <sys_updated_on>2019-07-10 11:01:24</sys_updated_on>
+    </sys_hub_category>
+    <sys_translated_text action="delete_multiple" query="documentkey=52ea2031db6633403e146583ca9619ed"/>
+</record_update>

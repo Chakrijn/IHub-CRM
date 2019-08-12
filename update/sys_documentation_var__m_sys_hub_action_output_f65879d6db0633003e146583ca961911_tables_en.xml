@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="tables" label="Tables" language="en" table="var__m_sys_hub_action_output_f65879d6db0633003e146583ca961911">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>tables</element>
+            <help/>
+            <hint/>
+            <label>Tables</label>
+            <language>en</language>
+            <name>var__m_sys_hub_action_output_f65879d6db0633003e146583ca961911</name>
+            <plural/>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>ecs.user</sys_created_by>
+            <sys_created_on>2019-06-17 09:25:04</sys_created_on>
+            <sys_id>cb5879d6db0633003e146583ca961967</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Tables</sys_name>
+            <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+            <sys_update_name>sys_documentation_var__m_sys_hub_action_output_f65879d6db0633003e146583ca961911_tables_en</sys_update_name>
+            <sys_updated_by>ecs.user</sys_updated_by>
+            <sys_updated_on>2019-06-17 09:25:04</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

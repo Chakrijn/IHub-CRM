@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_hub_action_input_action_instance">
+    <sys_hub_action_input_action_instance action="INSERT_OR_UPDATE">
+        <action_input display_value="">ad276a78db8f77406a555275ca961911</action_input>
+        <action_inputs/>
+        <action_type display_value="Get Entities">11a44b07db123b003e146583ca96196f</action_type>
+        <sys_class_name>sys_hub_action_input_action_instance</sys_class_name>
+        <sys_created_by>sheetals</sys_created_by>
+        <sys_created_on>2019-08-01 14:01:23</sys_created_on>
+        <sys_id>21276a78db8f77406a555275ca961919</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+        <sys_update_name>sys_hub_action_input_action_instance_21276a78db8f77406a555275ca961919</sys_update_name>
+        <sys_updated_by>sheetals</sys_updated_by>
+        <sys_updated_on>2019-08-01 14:01:24</sys_updated_on>
+    </sys_hub_action_input_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=21276a78db8f77406a555275ca961919"/>
+</record_update>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="record_id" label="Record ID" language="en" table="var__m_sys_hub_action_output_bfbfce72db9a77006a555275ca9619c0">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>record_id</element>
+            <help/>
+            <hint/>
+            <label>Record ID</label>
+            <language>en</language>
+            <name>var__m_sys_hub_action_output_bfbfce72db9a77006a555275ca9619c0</name>
+            <plural/>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>sheetals</sys_created_by>
+            <sys_created_on>2019-07-01 10:40:06</sys_created_on>
+            <sys_id>bacf82b2db9a77006a555275ca9619fb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Record ID</sys_name>
+            <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+            <sys_update_name>sys_documentation_var__m_sys_hub_action_output_bfbfce72db9a77006a555275ca9619c0_record_id_en</sys_update_name>
+            <sys_updated_by>sheetals</sys_updated_by>
+            <sys_updated_on>2019-07-01 10:40:06</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_complex_object">
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FDad92c7d3c44f3f402aa8b7a353cd685f</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>77864225dba933003e146583ca9619eb</scope_name>
+        <serialized_content>{"FlowDesigner:FDad92c7d3c44f3f402aa8b7a353cd685f":{"value":[{"$627_value":{"id":"String","id.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"string\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"id\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\"}"}}}],"value.$field_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"child_hint\":\"\",\"child_maxsize\":\"\",\"label\":\"value\",\"mandatory\":\"false\",\"child_name\":\"value0\",\"uiTypeLabel\":\"$1221:value\",\"child_label\":\"value0\",\"child_type_label\":\"Object\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_defaultValue\":\"\",\"child_type\":\"object\",\"order\":\"1\",\"max_length\":\"0\"}"}},"FlowDesigner:FDad92c7d3c44f3f402aa8b7a353cd685f.$type_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDad92c7d3c44f3f402aa8b7a353cd685f\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"default_value\":\"\",\"label\":\"Records\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"8000\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-08-09 10:26:05</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>6192c7d3db4f3f403e146583ca961960</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FDad92c7d3c44f3f402aa8b7a353cd685f</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+        <sys_update_name>sys_complex_object_6192c7d3db4f3f403e146583ca961960</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-08-09 10:26:05</sys_updated_on>
+        <type>complex_object_schema</type>
+    </sys_complex_object>
+</record_update>

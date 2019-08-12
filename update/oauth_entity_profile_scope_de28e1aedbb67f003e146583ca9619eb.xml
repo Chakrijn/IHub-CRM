@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity_profile_scope">
+    <oauth_entity_profile_scope action="INSERT_OR_UPDATE">
+        <oauth_entity_profile display_value="snowoauthcrm default_profile">f0e721aedbb67f003e146583ca961974</oauth_entity_profile>
+        <oauth_entity_scope display_value="https://snowhyd.crm8.dynamics.com/user_impersonation">632865aedbb67f003e146583ca9619ff</oauth_entity_scope>
+        <sys_class_name>oauth_entity_profile_scope</sys_class_name>
+        <sys_created_by>sanketg</sys_created_by>
+        <sys_created_on>2019-07-25 09:41:09</sys_created_on>
+        <sys_id>de28e1aedbb67f003e146583ca9619eb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>f0e721aedbb67f003e146583ca961974</sys_name>
+        <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+        <sys_update_name>oauth_entity_profile_scope_de28e1aedbb67f003e146583ca9619eb</sys_update_name>
+        <sys_updated_by>sanketg</sys_updated_by>
+        <sys_updated_on>2019-07-25 09:41:09</sys_updated_on>
+    </oauth_entity_profile_scope>
+</record_update>

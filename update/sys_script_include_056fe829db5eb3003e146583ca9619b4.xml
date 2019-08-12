@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_microsoft_dy.MicrosoftDynamicsCRMUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Microsoft Dynamics CRM Utils</description>
+        <name>MicrosoftDynamicsCRMUtils</name>
+        <script><![CDATA[var MicrosoftDynamicsCRMUtils = Class.create();
+MicrosoftDynamicsCRMUtils.prototype = {
+    initialize: function() {},
+
+    trimStringInputs: function(inputs) {
+        for (var key in inputs) {
+            if (inputs[key] && typeof inputs[key] == 'string') {
+                inputs[key] = inputs[key].trim();
+            }
+        }
+        return inputs;
+    },
+
+    validateRecord: function(record_id) {
+        try {
+            if (record_id) {
+                return encodeURI(record_id);
+            } else {
+                throw new Error("Provided Record ID is invalid or not provided.");
+            }
+        } catch (err) {
+            throw new Error("Provided Record ID is invalid or not provided.");
+        }
+    },
+
+    validateContact: function(contact_id) {
+        try {
+            if (contact_id) {
+                return contact_id;
+            } else {
+                throw new Error("Provided Contact ID is not provided or invalid.");
+            }
+        } catch (err) {
+            throw new Error("Provided Contact ID is not provided or invalid.");
+        }
+    },
+
+    validateAccount: function(account_id) {
+        try {
+            if (account_id) {
+                return account_id;
+            } else {
+                throw new Error("Provided Account ID is invalid or not provided.");
+            }
+        } catch (err) {
+            throw new Error("Provided Account ID is invalid or not provided.");
+        }
+    },
+
+    validateLead: function(lead_id) {
+        try {
+            if (lead_id) {
+                return lead_id;
+            } else {
+                throw new Error("Provided Lead ID is invalid or not provided.");
+            }
+        } catch (err) {
+            throw new Error("Provided Lead ID is invalid or not provided.");
+        }
+    },
+
+    validateOpportunity: function(opportunity_id) {
+        try {
+            if (opportunity_id) {
+                return opportunity_id;
+            } else {
+                throw new Error("Provided Opportunity ID is invalid or not provided.");
+            }
+        } catch (err) {
+            throw new Error("Provided Opportunity ID is invalid or not provided.");
+        }
+    },
+
+    throwError: function(type) {
+
+        if (type == "invalid_entity")
+            throw new Error("Provided Entity is invalid.");
+        if (type == "multiple_records")
+            throw new Error("Multiple Records Found.");
+        if (type == "getEntityMetadata")
+            throw new Error("Provided Entity Type is invalid.");
+        if (type == "invalid_list_mandatory_field")
+            throw new Error("Provided value for List Mandatory Fields input is invalid. Valid values are true/false. ");
+    },
+
+
+
+    getPicklistOptions: function(picklistJson, field) {
+        var optionset = [];
+        var picklistJSon = JSON.parse(picklistJson);
+        for (var i = 0; i < picklistJSon.value.length; i++) {
+            if (picklistJSon.value[i].LogicalName == field) {
+                for (var j = 0; j < picklistJSon.value[i].OptionSet.Options.length; j++) {
+                    var value = picklistJSon.value[i].OptionSet.Options[j].Value;
+                    var name = picklistJSon.value[i].OptionSet.Options[j].Label.LocalizedLabels[0].Label;
+                    optionset[j] = value + ' - ' + name;
+                }
+            }
+
+        }
+        return optionset;
+    },
+
+    getType: function(json) {
+        var type = json["@odata.type"];
+        if (type == "#Microsoft.Dynamics.CRM.PicklistAttributeMetadata")
+            return "picklist";
+        else if (type == "#Microsoft.Dynamics.CRM.LookupAttributeMetadata")
+            return "lookup";
+        else
+            return "string";
+
+    },
+
+    getValue: function(key, value) {
+        key = key.trim();
+        value = value.trim();
+        var keyValuePair = {};
+        if (value.indexOf(' - ') != -1) {
+            keyValuePair["key"] = key;
+            keyValuePair["value"] = value.substr(0, value.indexOf(' - '));
+        } else if (key.indexOf('-') != -1) {
+            keyValuePair["key"] = key.substr(0, key.indexOf('-'));
+            keyValuePair["value"] = '/' + key.substr(key.indexOf('-') + 1, (key.length) - 1) + '(' + value + ')';
+        } else {
+            keyValuePair["key"] = key;
+            keyValuePair["value"] = value;
+        }
+        return keyValuePair;
+    },
+
+    getDisplayName: function(json) {
+        var displayName = (typeof json.DisplayName.LocalizedLabels[0] == 'undefined' ? json.LogicalName : json.DisplayName.LocalizedLabels[0].Label);
+
+        return displayName;
+    },
+
+    getBindName: function(bindJson, logicalName) {
+        for (var i = 0; i < bindJson.value.length; i++) {
+            if (bindJson.value[i].LogicalName == logicalName) {
+                return bindJson.value[i].EntitySetName;
+            }
+
+        }
+
+    },
+
+    toLowerCase: function(input) {
+        try {
+            return input.toLowerCase();
+        } catch (e) {}
+    },
+
+
+    spliceMandatoryKeys: function(fields, type) {
+        var mandateKeys = {
+            "account": ["name", "primarycontactid@odata.bind-contacts", "parentaccountid@odata.bind-accounts", "telephone1", "websiteurl", "address1_line1", "address1_city", "address1_stateorprovince", "address1_country"],
+            "contact": ["firstname", "lastname", "emailaddress1", "telephone1"],
+            "opportunity": ["name", "parentaccountid@odata.bind-accounts", "transactioncurrencyid@odata.bind-transactioncurrencies", "pricelevelid@odata.bind-pricelevels"],
+            "incident": ["title", "customeridtype", "customerid_account@odata.bind-accounts", "contactid@odata.bind-contacts", "casetypecode", "primarycontactid@odata.bind-contacts", "description", "isescalated", "prioritycode", "emailaddress"],
+            "lead": ["subject", "firstname", "lastname", "customerid_contact@odata.bind-contacts", "accountid@odata.bind-accounts", "emailaddress1", "msdyn_ordertype", "industrycode", "transactioncurrencyid@odata.bind-transactioncurrencies", "contactid@odata.bind-contacts", "campaignid@odata.bind-campaigns"]
+        };
+
+        var splitKeys = [];
+		var key = Object.keys(mandateKeys);
+		if(key.indexOf(type) != -1){
+        splitKeys = mandateKeys[type];
+        for (var i in fields.data) {
+            if (splitKeys.indexOf(fields.data[i].name) != -1) {
+                (fields.data).splice(i, 1);
+            }
+        }
+		}
+        return fields;
+    },
+    type: 'MicrosoftDynamicsCRMUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>mohammadik</sys_created_by>
+        <sys_created_on>2019-06-27 06:27:13</sys_created_on>
+        <sys_id>056fe829db5eb3003e146583ca9619b4</sys_id>
+        <sys_mod_count>81</sys_mod_count>
+        <sys_name>MicrosoftDynamicsCRMUtils</sys_name>
+        <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+        <sys_update_name>sys_script_include_056fe829db5eb3003e146583ca9619b4</sys_update_name>
+        <sys_updated_by>sheetals</sys_updated_by>
+        <sys_updated_on>2019-08-08 05:09:21</sys_updated_on>
+    </sys_script_include>
+</record_update>

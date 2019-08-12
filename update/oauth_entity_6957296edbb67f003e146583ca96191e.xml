@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity">
+    <oauth_entity action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <access_token_lifespan>1800</access_token_lifespan>
+        <active>true</active>
+        <auth_code_lifespan>0</auth_code_lifespan>
+        <auth_url>https://login.microsoftonline.com/common/oauth2/authorize?resource=https://ecspune0.crm8.dynamics.com&amp;</auth_url>
+        <certificate_url/>
+        <client_id>7d8f63ed-b66d-40d3-aa5f-367e739c4e92</client_id>
+        <client_secret>ShGvrck7w68wX9MZuKtYzxcpqjlwicd3GPjaOzlSoVp7MaSa+EyjGA==</client_secret>
+        <client_uuid>e557296edbb67f003e146583ca96191e</client_uuid>
+        <code_challenge_method>S256</code_challenge_method>
+        <comments/>
+        <default_grant_type>authorization_code</default_grant_type>
+        <id_token_lifespan>0</id_token_lifespan>
+        <logo_url/>
+        <message_signature_lifespan>0</message_signature_lifespan>
+        <name>snowoauthcrm</name>
+        <oauth_api_script/>
+        <protocol_name/>
+        <public_client>false</public_client>
+        <redirect_url>https://ecstemp1.service-now.com/oauth_redirect.do</redirect_url>
+        <refresh_token_lifespan>8640000</refresh_token_lifespan>
+        <refresh_token_url/>
+        <revoke_token_url/>
+        <salt>0</salt>
+        <send_client_credentials_as>request_body_parameter</send_client_credentials_as>
+        <skip_authorize>false</skip_authorize>
+        <sys_class_name>oauth_entity</sys_class_name>
+        <sys_created_by>sanketg</sys_created_by>
+        <sys_created_on>2019-07-25 09:38:41</sys_created_on>
+        <sys_id>6957296edbb67f003e146583ca96191e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>snowoauthcrm</sys_name>
+        <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+        <sys_update_name>oauth_entity_6957296edbb67f003e146583ca96191e</sys_update_name>
+        <sys_updated_by>sanketg</sys_updated_by>
+        <sys_updated_on>2019-07-25 09:38:41</sys_updated_on>
+        <token_url>https://login.microsoftonline.com/common/oauth2/token</token_url>
+        <type>oauth_provider</type>
+        <use_mutual_auth>false</use_mutual_auth>
+        <user/>
+    </oauth_entity>
+</record_update>

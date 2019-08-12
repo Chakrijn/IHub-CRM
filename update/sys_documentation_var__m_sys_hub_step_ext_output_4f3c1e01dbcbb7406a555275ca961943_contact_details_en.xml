@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="contact_details" label="contact_details" language="en" table="var__m_sys_hub_step_ext_output_4f3c1e01dbcbb7406a555275ca961943">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>contact_details</element>
+            <help/>
+            <hint/>
+            <label>contact_details</label>
+            <language>en</language>
+            <name>var__m_sys_hub_step_ext_output_4f3c1e01dbcbb7406a555275ca961943</name>
+            <plural/>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>mohammadik</sys_created_by>
+            <sys_created_on>2019-08-02 07:52:13</sys_created_on>
+            <sys_id>e33c1e01dbcbb7406a555275ca961979</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>contact_details</sys_name>
+            <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+            <sys_update_name>sys_documentation_var__m_sys_hub_step_ext_output_4f3c1e01dbcbb7406a555275ca961943_contact_details_en</sys_update_name>
+            <sys_updated_by>mohammadik</sys_updated_by>
+            <sys_updated_on>2019-08-02 07:52:13</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity_profile">
+    <oauth_entity_profile action="INSERT_OR_UPDATE">
+        <default>true</default>
+        <grant_type>authorization_code</grant_type>
+        <jwt_provider/>
+        <name>snowoauthcrm default_profile</name>
+        <oauth_entity display_value="snowoauthcrm">6957296edbb67f003e146583ca96191e</oauth_entity>
+        <sys_class_name>oauth_entity_profile</sys_class_name>
+        <sys_created_by>sanketg</sys_created_by>
+        <sys_created_on>2019-07-25 09:38:41</sys_created_on>
+        <sys_id>f0e721aedbb67f003e146583ca961974</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>snowoauthcrm default_profile</sys_name>
+        <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+        <sys_update_name>oauth_entity_profile_f0e721aedbb67f003e146583ca961974</sys_update_name>
+        <sys_updated_by>sanketg</sys_updated_by>
+        <sys_updated_on>2019-07-25 09:38:41</sys_updated_on>
+    </oauth_entity_profile>
+</record_update>

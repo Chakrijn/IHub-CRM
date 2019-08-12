@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="status_code" label="status_code" language="en" table="var__m_sys_hub_step_ext_input_4f8bcc6fdb927b003e146583ca961988">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>status_code</element>
+            <help/>
+            <hint/>
+            <label>status_code</label>
+            <language>en</language>
+            <name>var__m_sys_hub_step_ext_input_4f8bcc6fdb927b003e146583ca961988</name>
+            <plural/>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>sheetals</sys_created_by>
+            <sys_created_on>2019-07-03 08:57:46</sys_created_on>
+            <sys_id>c38bcc6fdb927b003e146583ca961991</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>status_code</sys_name>
+            <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+            <sys_update_name>sys_documentation_var__m_sys_hub_step_ext_input_4f8bcc6fdb927b003e146583ca961988_status_code_en</sys_update_name>
+            <sys_updated_by>sheetals</sys_updated_by>
+            <sys_updated_on>2019-07-03 08:57:46</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

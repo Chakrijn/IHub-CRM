@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_complex_object">
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FD717d6e6b4c263700e928e201c5b894d0</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>77864225dba933003e146583ca9619eb</scope_name>
+        <serialized_content>{"FlowDesigner:FD717d6e6b4c263700e928e201c5b894d0":{"recordid":["Any"],"recordid.$field_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"child_hint\":\"\",\"child_maxsize\":\"\",\"label\":\"recordid\",\"mandatory\":\"true\",\"child_name\":\"id\",\"uiTypeLabel\":\"Array.Object\",\"child_label\":\"id\",\"child_type_label\":\"Object\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"3\",\"max_length\":\"0\"}"}},"FlowDesigner:FD717d6e6b4c263700e928e201c5b894d0.$type_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"co_type_name\":\"FD717d6e6b4c263700e928e201c5b894d0\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"records\",\"mandatory\":\"true\",\"order\":\"3\",\"max_length\":\"8000\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>mohammadik</sys_created_by>
+        <sys_created_on>2019-07-16 07:00:54</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>067d6e6bdb2637006a555275ca9619d0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FD717d6e6b4c263700e928e201c5b894d0</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+        <sys_update_name>sys_complex_object_067d6e6bdb2637006a555275ca9619d0</sys_update_name>
+        <sys_updated_by>mohammadik</sys_updated_by>
+        <sys_updated_on>2019-07-16 07:00:54</sys_updated_on>
+        <type>complex_object_schema</type>
+    </sys_complex_object>
+</record_update>

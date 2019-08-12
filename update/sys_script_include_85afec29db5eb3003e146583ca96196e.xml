@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_microsoft_dy.MicrosoftDynamicsCRMErrorHandler</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Error Handler for Microsoft Dynamics CRM Actions</description>
+        <name>MicrosoftDynamicsCRMErrorHandler</name>
+        <script><![CDATA[var MicrosoftDynamicsCRMErrorHandler = Class.create();
+MicrosoftDynamicsCRMErrorHandler.prototype = {
+    initialize: function() {},
+
+    retrieveErrorMessage: function(code) {
+        var errorCodeMsgs = {
+            "unauthorized": "Invalid username or password/token or the token has expired.",
+            "forbidden": "The user does not have sufficient permission to perform this action.",
+
+            // Update Record Error Messages
+            "invalid_record_id": "Provided Record ID is invalid or not provided.",
+            "invalid_entity_fields": "Provided Entity or Field value is invalid.",
+
+            //Get Record Details Error Messages
+            "invalid_get_record_id": "Provided Record ID is invalid or not provided.",
+            "invalid_get_record_entity": "Provided Entity is invalid.",
+
+            //Delete Record Error Messages
+            "invalid_delete_record_id": "Provided Record ID is invalid or not provided.",
+            "invalid_delete_record_entity": "Provided Entity is invalid.",
+
+            //Get Entity Metadata Error Messages
+            "invalid_entity_type": "Provided Entity Type is invalid.",
+
+            // Get Account Details Error Messages
+            "invalid_account_id": "Provided Account ID is invalid or not provided.",
+
+            // Get Lead Details Error Messages
+            "invalid_lead_id": "Provided Lead ID is invalid or not provided.",
+
+            // Get Opportunity Details Error Messages
+            "invalid_opportunity_id": "Provided Opportunity ID is invalid or not provided.",
+
+            // Get Opportunity Details Error Messages
+            "invalid_get_contact_id": "Provided Contact ID is invalid or not provided.",
+
+            // Get Case Details Error Messages
+            "invalid_case_id": "Provided Case ID is invalid or not provided.",
+
+            //Get Field Choice List
+            "invalid_field_choice_entity": "Provided Entity Type is invalid.",
+            "invalid_field_choice_field": "Provided Field Name is invalid.",
+
+            //Create Record Error Messages
+            "invalid_field_value": "Provided value for Fields input is invalid.",
+            "invalid_entity": "Provided Entity is invalid.",
+
+            //Create Opportunity
+            "invalid_opportunity_parent": "One or more inputs are invalid or not provided.",
+
+            //Create Lead
+            "invalid_lead_input": "One or more inputs are invalid or not provided.",
+
+            //Create Account 
+            "invalid_account_input": "One or more inputs are invalid or not provided.",
+
+            //Create Contact
+            "invalid_contact_input": "One or more inputs are invalid or not provided.",
+
+            //Create  A Case 
+            "invalid_case_input": "One or more inputs are invalid or not provided.",
+            "invalid_primary_contact": "Provided Primary Contact is invalid and does not belong to the value provided in Customer input or the specified contact is already provided in the Customer input.",
+            "invalid_title_input": "Provided value for Title input is invalid.",
+            "invalid_email_input": "Provided value for Email Address input is invalid.",
+
+            //Look Up Records
+            "invalid_search_query": "Provided Search Query is invalid.",
+
+            //Look Up Record
+            "multiple_record": "Multiple Records Found.",
+            "no_record": "No Record Found.",
+            "one_record": "Only One Record Found.",
+            "invalid_entity_selected": "Provided Entity is invalid."
+
+        };
+        for (var key in errorCodeMsgs) {
+            if (key == code) {
+                return errorCodeMsgs[key];
+            }
+        }
+    },
+
+    genericErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+
+
+        if (inputs.status_code == '401' && (inputs.error_message.indexOf('Invalid username/password combo') != -1))
+            outputs.error_message = this.retrieveErrorMessage('unauthorized');
+        else if (inputs.status_code == '403' && (inputs.error_message.indexOf('Forbidden username/password combo') != -1))
+            outputs.error_message = this.retrieveErrorMessage('forbidden');
+        return outputs;
+    },
+
+    updateRecordErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';			
+				if(inputs.throw_error == "error"){
+					switch (String(inputs.status_code)) {
+				case "404":
+					new MicrosoftDynamicsCRMUtils().throwError("invalid_entity");
+					break;
+				default:
+                this.genericErrorHandler(inputs, outputs);
+				}
+				} else {
+				switch (String(inputs.status_code)) {
+				case "400":
+                if ((inputs.response.indexOf("expected at position") !== -1) || (inputs.response.indexOf("Bad Request - Error in query syntax.") !== -1) || (inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_record_id');
+                else if ((inputs.response.indexOf("An error occurred while validating input parameters") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_field_value');
+                else if ((inputs.response.indexOf("The operation attempted to insert a duplicate value for an attribute with a unique constraint. ") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_record_id');
+                else if ((inputs.response.indexOf("DateTime is less than minumum value supported by CrmDateTime.") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_entity_fields');
+                else if ((inputs.response.indexOf("The 'Update' method does not support entities of type 'msdyn_resourcerequirement_bookingheader'") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_entity_selected');
+                else
+                    this.genericErrorHandler(inputs, outputs);
+                break;
+
+            case '404':
+                if (inputs.response.indexOf("EntityMetadata With Id = LogicalName='' does not exist.") !== -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_record_id');
+                if (inputs.response.indexOf("Resource not found for the segment 'sqlencryptionaudits'.") != -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_record_id');
+                else if (inputs.response.indexOf("File or directory not found.") !== -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_record_id');
+                else
+                    this.genericErrorHandler(inputs, outputs);
+                break;
+            case '405':
+                if (inputs.response.indexOf("The requested resource does not support http method 'PATCH'.") !== -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_record_id');
+                else
+                    this.genericErrorHandler(inputs, outputs);
+                break;
+            case "500":
+                if ((inputs.response.indexOf("A potentially dangerous Request.Path value was detected from the client ") !== -1) || (inputs.response.indexOf("An error has occurred. Try this action again.") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_record_id');
+                else
+                    this.genericErrorHandler(inputs, outputs);
+                break;
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+			}
+        return outputs;
+    },
+
+    getRecordDetailsErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+            case "400":
+                if ((inputs.response.indexOf("Bad Request - Error in query syntax") != -1) || ((inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1)) || (inputs.response.indexOf('HTTP Error 400. The request URL is invalid.') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_get_record_id');
+                break;
+            case "404":
+                if (((inputs.response.indexOf('account With Id') != -1) && (inputs.response.indexOf('Does Not Exist') != -1)) || (inputs.response.indexOf('404 - File or directory not found.') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_get_record_id');
+                else if ((inputs.response.indexOf('Empty segment encountered in request URL. Please make sure that a valid request URL is specified') != -1) || (inputs.response.indexOf('Resource not found for the segment') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_get_record_entity');
+                break;
+            case "500":
+                if ((inputs.response.indexOf("A potentially dangerous Request.Path value was detected from the client") != -1) || (inputs.response.indexOf("An error has occurred. Try this action again") != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_get_record_id');
+                break;
+
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+        return outputs;
+    },
+
+    deleteRecordDetailsErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+            case "400":
+                if ((inputs.response.indexOf("Bad Request - Error in query syntax") != -1) || (inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1) || (inputs.response.indexOf("expected at position") != -1) || (inputs.response.indexOf("There is an unterminated string literal") != -1) || (inputs.response.indexOf("Found an unbalanced bracket expression") != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_delete_record_id');
+                else if (inputs.response.indexOf(("method does not support entities of type") != -1) || (("Bad Request") != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_delete_record_entity');
+                else
+                    this.genericErrorHandler(inputs, outputs);
+                break;
+            case "404":
+                if ((inputs.response.indexOf('With Id') != -1) && (inputs.response.indexOf('Does Not Exist') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_delete_record_id');
+                else if ((inputs.response.indexOf('Empty segment encountered in request URL. Please make sure that a valid request URL is specified') != -1) || (inputs.response.indexOf('Resource not found for the segment') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_delete_record_entity');
+                else
+                    this.genericErrorHandler(inputs, outputs);
+                break;
+            case "500":
+                if ((inputs.response.indexOf("A potentially dangerous Request.Path value was detected from the client") != -1) || (inputs.response.indexOf("An error has occurred") != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_delete_record_id');
+                else
+                    this.genericErrorHandler(inputs, outputs);
+                break;
+
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+        return outputs;
+    },
+
+    createRecordErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        if (inputs.fields) {
+            switch (String(inputs.status_code)) {
+				case "400":
+					throw new Error(this.retrieveErrorMessage('invalid_entity'));
+                case "401":
+                    throw new Error(this.retrieveErrorMessage('unauthorized'));
+                case "403":
+                    throw new Error(this.retrieveErrorMessage('forbidden'));
+                case "404":
+                    throw new Error(this.retrieveErrorMessage('invalid_entity'));
+            }
+        } else {
+            switch (String(inputs.status_code)) {
+                case "400":
+                    outputs.error_message = this.retrieveErrorMessage('invalid_field_value');
+                    break;
+				case "404":
+					outputs.error_message = this.retrieveErrorMessage('invalid_field_value');
+                    break;
+                case "500":
+                    outputs.error_message = this.retrieveErrorMessage('invalid_field_value');
+                    break;
+                default:
+                    this.genericErrorHandler(inputs, outputs);
+            }
+        }
+        return outputs;
+
+    },
+    getEntityMetadataErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        if (inputs.throw_error == "throw") {
+            switch (String(inputs.status_code)) {
+                case '404':
+                    new MicrosoftDynamicsCRMUtils().throwError("getEntityMetadata");
+                    break;
+                case '500':
+                    new MicrosoftDynamicsCRMUtils().throwError("getEntityMetadata");
+                    break;
+                case '401':
+                    if (inputs.error_message.indexOf('Invalid username/password combo') != -1)
+                        throw new Error(this.retrieveErrorMessage('unauthorized'));
+                    break;
+                case '403':
+                    if (inputs.error_message.indexOf('Forbidden username/password combo') != -1)
+                        throw new Error(this.retrieveErrorMessage('forbidden'));
+
+            }
+        } else {
+            switch (String(inputs.status_code)) {
+                case '404':
+                    if ((inputs.response.indexOf("Entity With Id") !== -1 && inputs.response.indexOf("does not exist.") !== -1) || (inputs.response.indexOf("Server Error") !== -1))
+                        outputs.error_message = this.retrieveErrorMessage('invalid_entity_type');
+                    else
+                        this.genericErrorHandler(inputs, outputs);
+                    break;
+                case '500':
+                    outputs.error_message = this.retrieveErrorMessage('invalid_entity_type');
+                    break;
+                default:
+                    this.genericErrorHandler(inputs, outputs);
+            }
+        }
+        return outputs;
+    },
+
+    getRecordsErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        if (inputs.fields == "error") {
+            switch (String(inputs.status_code)) {
+                case "400":
+                    throw new Error(this.retrieveErrorMessage('invalid_entity'));
+                case "401":
+                    throw new Error(this.retrieveErrorMessage('unauthorized'));
+                case "403":
+                    throw new Error(this.retrieveErrorMessage('forbidden'));
+                case "404":
+                    throw new Error(this.retrieveErrorMessage('invalid_entity'));
+				case "500":
+                    throw new Error(this.retrieveErrorMessage('invalid_entity'));
+            }
+        } else {
+            switch (String(inputs.status_code)) {
+                case "400":
+                    if ((inputs.response.indexOf("Bad Request - Error in query syntax") != -1) || (inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1) || (inputs.response.indexOf("An unsupported query token kind 'Star' was found.") !== -1))
+                        outputs.error_message = this.retrieveErrorMessage('invalid_get_record_id');
+                    break;
+                case "404":
+                    if ((inputs.response.indexOf('account With Id') != -1) && (inputs.response.indexOf('Does Not Exist') != -1))
+                        outputs.error_message = this.retrieveErrorMessage('invalid_get_record_id');
+                    else if ((inputs.response.indexOf('Empty segment encountered in request URL. Please make sure that a valid request URL is specified') != -1) || (inputs.response.indexOf('Resource not found for the segment') != -1))
+                        outputs.error_message = this.retrieveErrorMessage('invalid_get_record_entity');
+                    break;
+                case "500":
+                    if (inputs.response.indexOf("A potentially dangerous Request.Path value was detected from the client") != -1)
+                        outputs.error_message = this.retrieveErrorMessage('invalid_get_record_id');
+                    break;
+
+                default:
+                    this.genericErrorHandler(inputs, outputs);
+            }
+        }
+        return outputs;
+    },
+
+
+    getAccountDetailsErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+            case "400":
+                if ((inputs.response.indexOf("expected at position") !== -1) || (inputs.response.indexOf("There is an unterminated string literal at position") !== -1) || (inputs.response.indexOf("Bad Request - Error in query syntax.") !== -1) || (inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1) || (inputs.response.indexOf("An unsupported query token kind 'Star' was found.") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_account_id');
+                break;
+            case "404":
+                if ((inputs.response.indexOf('account With Id') != -1) && (inputs.response.indexOf('Does Not Exist') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_account_id');
+                else if (inputs.response.indexOf("File or directory not found.") != -1)
+                    outputs.error_message = this.retrieveErrorMessage("invalid_account_id");
+                break;
+            case "500":
+                if ((inputs.response.indexOf("A potentially dangerous Request.Path value was detected from the client ") !== -1) || (inputs.response.indexOf("An error has occurred. Try this action again.") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_account_id');
+                break;
+
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+        return outputs;
+    },
+
+    getLeadDetailsErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+            case "400":
+                if ((inputs.response.indexOf("expected at position") !== -1) || (inputs.response.indexOf("Bad Request - Error in query syntax.") !== -1) || (inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1) || (inputs.response.indexOf("An unsupported query token kind 'Star' was found.") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_lead_id');
+                break;
+            case "404":
+                if ((inputs.response.indexOf('lead With Id') != -1) && (inputs.response.indexOf('Does Not Exist') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_lead_id');
+                else if (inputs.response.indexOf("File or directory not found.") != -1)
+                    outputs.error_message = this.retrieveErrorMessage("invalid_lead_id");
+                break;
+            case "500":
+                if ((inputs.response.indexOf("A potentially dangerous Request.Path value was detected from the client ") !== -1) || (inputs.response.indexOf("An error has occurred. Try this action again.") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_lead_id');
+                break;
+
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+        return outputs;
+    },
+
+
+    getOpportunityDetailsErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+            case "400":
+                if ((inputs.response.indexOf("expected at position") !== -1) || (inputs.response.indexOf("Bad Request - Error in query syntax.") !== -1) || (inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1) || (inputs.response.indexOf("An unsupported query token kind 'Star' was found.") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_opportunity_id');
+                break;
+            case "404":
+                if ((inputs.response.indexOf('opportunity With Id') != -1) && (inputs.response.indexOf('Does Not Exist') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_opportunity_id');
+                else if (inputs.response.indexOf("File or directory not found.") != -1)
+                    outputs.error_message = this.retrieveErrorMessage("invalid_opportunity_id");
+                break;
+            case "500":
+                if ((inputs.response.indexOf("A potentially dangerous Request.Path value was detected from the client ") !== -1) || (inputs.response.indexOf("An error has occurred. Try this action again.") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_opportunity_id');
+                break;
+
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+        return outputs;
+    },
+
+    getContactDetailsErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+            case "400":
+                if ((inputs.response.indexOf("expected at position") !== -1) || (inputs.response.indexOf("Bad Request - Error in query syntax.") !== -1) || (inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1) || (inputs.response.indexOf("Found an unbalanced bracket expression") !== -1) || (inputs.response.indexOf("There is an unterminated string literal") !== -1) || (inputs.response.indexOf("An unsupported query token kind 'Star' was found.") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_get_contact_id');
+                break;
+            case "404":
+                if ((inputs.response.indexOf('contact With Id') != -1) && (inputs.response.indexOf('Does Not Exist') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_opportunity_id');
+                else if (inputs.response.indexOf("File or directory not found.") != -1)
+                    outputs.error_message = this.retrieveErrorMessage("invalid_get_contact_id");
+                break;
+            case "500":
+                if ((inputs.response.indexOf("A potentially dangerous Request.Path value was detected from the client ") !== -1) || (inputs.response.indexOf("An error has occurred. Try this action again.") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_get_contact_id');
+                break;
+
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+        return outputs;
+    },
+
+    getCaseDetailsErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+            case "200":
+                if (inputs.error_message.indexOf("invalid_case_id") !== -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_case_id');
+                break;
+            case "400":
+                if ((inputs.response.indexOf("Syntax error at position") !== -1) || (inputs.response.indexOf("Could not find a property") !== -1) || (inputs.response.indexOf("expected at position") !== -1) || (inputs.response.indexOf("Bad Request - Error in query syntax.") !== -1) || (inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1) || (inputs.response.indexOf("An unsupported query token kind 'Star' was found.") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_case_id');
+                break;
+            case "404":
+                if ((inputs.response.indexOf('account With Id') != -1) && (inputs.response.indexOf('Does Not Exist') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_case_id');
+                else if (inputs.response.indexOf("File or directory not found.") != -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_case_id');
+                break;
+            case "500":
+                if ((inputs.response.indexOf("A potentially dangerous Request.Path value was detected from the client ") !== -1) || (inputs.response.indexOf("An error has occurred. Try this action again.") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_case_id');
+                break;
+
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+        return outputs;
+    },
+
+
+
+    getFieldChoiceListErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+
+            case '404':
+                if (inputs.response.indexOf("Entity With Id") !== -1 && inputs.response.indexOf("does not exist.") !== -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_field_choice_entity');
+                else if (inputs.response.indexOf("Navigation property Attributes With Id") !== -1 && inputs.response.indexOf("does not exist on Metadata Entity") !== -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_field_choice_field');
+                else
+                    this.genericErrorHandler(inputs, outputs);
+                break;
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+        return outputs;
+    },
+
+    createACaseErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+            case "400":
+                if (JSON.parse(inputs.response).error.message.indexOf("The specified contact doesn't belong to the contact that was specified in the customer field.") != -1 || JSON.parse(inputs.response).error.message.indexOf("The specified contact doesn't belong to the account selected as the customer.") != -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_primary_contact');
+                else if (inputs.response.indexOf("The length of the 'title' attribute of the 'incident' entity exceeded the maximum allowed length of") != -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_title_input');
+                else if (inputs.response.indexOf("The length of the 'emailaddress' attribute of the 'incident' entity exceeded the maximum allowed length") != -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_email_input');
+                else
+                    outputs.error_message = this.retrieveErrorMessage('invalid_case_input');
+                break;
+			case "404":
+				outputs.error_message = this.retrieveErrorMessage('invalid_case_input');
+				break;
+            case "500":
+                outputs.error_message = this.retrieveErrorMessage('invalid_case_input');
+                break;
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+
+        return outputs;
+
+    },
+
+    createOpportunityErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+            case "400":
+                if ((inputs.response.indexOf("Bad Request - Error in query syntax") != -1) || ((inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1)) || (inputs.response.indexOf("expected at position") != -1) || (inputs.response.indexOf('The currency of the record does not match the currency of the price list') != -1) || (inputs.response.indexOf('An error occurred while validating input parameters') != -1) || (inputs.response.indexOf('A validation error occurred') != -1) || ((inputs.response.indexOf('The supplied reference link') != -1) && (inputs.response.indexOf('is invalid') != -1)))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_opportunity_parent');
+                break;
+
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+        return outputs;
+    },
+
+    createLeadErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+            case "400":
+                if ((inputs.response.indexOf("Bad Request - Error in query syntax") != -1) || ((inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1)) || (inputs.response.indexOf("expected at position") != -1) || (inputs.response.indexOf('The currency of the record does not match the currency of the price list') != -1) || (inputs.response.indexOf('An error occurred while validating input parameters') != -1) || ((inputs.response.indexOf('The supplied reference link') != -1) && (inputs.response.indexOf('is invalid') != -1)) || (inputs.response.indexOf('A validation error occurred') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_lead_input');
+                break;
+
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+        return outputs;
+    },
+
+    createAnAccountErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+            case "400":
+                if ((inputs.response.indexOf("Bad Request - Error in query syntax") != -1) || ((inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1)) || (inputs.response.indexOf("expected at position") != -1) || (inputs.response.indexOf('The currency of the record does not match the currency of the price list') != -1) || (inputs.response.indexOf('An error occurred while validating input parameters') != -1) || ((inputs.response.indexOf('The supplied reference link') != -1) && (inputs.response.indexOf('is invalid') != -1)) || (inputs.response.indexOf('A validation error occurred') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_account_input');
+                break;
+
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+        return outputs;
+    },
+
+    createAContactErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+            case "400":
+                if ((inputs.response.indexOf("Bad Request - Error in query syntax") != -1) || ((inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1)) || (inputs.response.indexOf("expected at position") != -1) || (inputs.response.indexOf('The currency of the record does not match the currency of the price list') != -1) || (inputs.response.indexOf('An error occurred while validating input parameters') != -1) || ((inputs.response.indexOf('The supplied reference link') != -1) && (inputs.response.indexOf('is invalid') != -1)) || (inputs.response.indexOf('A validation error occurred') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_contact_input');
+                break;
+
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+        return outputs;
+    },
+
+    lookUpRecordsErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+            case "400":
+                if ((inputs.response.indexOf("No function signature for the function with name 'contains' matches the specified arguments.") !== -1) || (inputs.response.indexOf("Syntax error at position") !== -1) || (inputs.response.indexOf("The $filter expression must evaluate to a single boolean value.") !== -1) || (inputs.response.indexOf("Could not find a property") !== -1) || (inputs.response.indexOf("expected at position") !== -1) || (inputs.response.indexOf("An unsupported query token kind 'Star' was found.") !== -1) || (inputs.response.indexOf("Bad Request - Error in query syntax.") !== -1) || (inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_search_query');
+                break;
+            case "404":
+                if ((inputs.response.indexOf('account With Id') != -1) && (inputs.response.indexOf('Does Not Exist') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_search_query');
+                else if (inputs.response.indexOf("File or directory not found.") != -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_search_query');
+                else if (inputs.response.indexOf("Resource not found for the segment ") != -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_entity_selected');
+                break;
+            case "500":
+                if ((inputs.response.indexOf("A potentially dangerous Request.Path value was detected from the client ") !== -1) || (inputs.response.indexOf("An error has occurred. Try this action again.") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_search_query');
+                break;
+
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+        return outputs;
+    },
+
+    lookUpRecordErrorHandler: function(inputs, outputs) {
+        outputs.status = 'Error';
+        switch (String(inputs.status_code)) {
+            case "200":
+                if (inputs.error_message.indexOf("Multiple Records found") !== -1)
+                    outputs.error_message = this.retrieveErrorMessage('multiple_record');
+                else if (inputs.error_message.indexOf("No Record found") !== -1)
+                    outputs.error_message = this.retrieveErrorMessage('no_record');
+                else if (inputs.error_message.indexOf("Only one Record found") !== -1)
+                    outputs.error_message = this.retrieveErrorMessage('one_record');
+                break;
+            case "400":
+                if ((inputs.response.indexOf("No function signature for the function with name 'contains' matches the specified arguments.") !== -1) || (inputs.response.indexOf("Syntax error at position") !== -1) || (inputs.response.indexOf("The $filter expression must evaluate to a single boolean value.") !== -1) || (inputs.response.indexOf("Could not find a property") !== -1) || (inputs.response.indexOf("expected at position") !== -1) || (inputs.response.indexOf("Bad Request - Error in query syntax.") !== -1) || (inputs.response.indexOf('Syntax error: character') != -1) && (inputs.response.indexOf('is not valid at position') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_search_query');
+                break;
+            case "404":
+                if (inputs.response.indexOf("Resource not found for the segment 'sqlencryptionaudits'.") != -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_entity_selected');
+                else if ((inputs.response.indexOf('account With Id') != -1) && (inputs.response.indexOf('Does Not Exist') != -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_search_query');
+                else if (inputs.response.indexOf("File or directory not found.") != -1)
+                    outputs.error_message = this.retrieveErrorMessage('invalid_search_query');
+
+                break;
+            case "500":
+                if ((inputs.response.indexOf("A potentially dangerous Request.Path value was detected from the client ") !== -1) || (inputs.response.indexOf("An error has occurred. Try this action again.") !== -1))
+                    outputs.error_message = this.retrieveErrorMessage('invalid_search_query');
+                break;
+
+            default:
+                this.genericErrorHandler(inputs, outputs);
+        }
+        return outputs;
+    },
+
+
+    type: 'MicrosoftDynamicsCRMErrorHandler'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>mohammadik</sys_created_by>
+        <sys_created_on>2019-06-27 06:30:07</sys_created_on>
+        <sys_id>85afec29db5eb3003e146583ca96196e</sys_id>
+        <sys_mod_count>155</sys_mod_count>
+        <sys_name>MicrosoftDynamicsCRMErrorHandler</sys_name>
+        <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+        <sys_update_name>sys_script_include_85afec29db5eb3003e146583ca96196e</sys_update_name>
+        <sys_updated_by>sheetals</sys_updated_by>
+        <sys_updated_on>2019-08-08 07:41:01</sys_updated_on>
+    </sys_script_include>
+</record_update>

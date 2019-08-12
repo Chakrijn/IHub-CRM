@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="priority" table="var__m_sys_hub_action_input_56e536dadbe233006a555275ca9619ee" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>priority</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>High</label>
+            <language>en</language>
+            <name>var__m_sys_hub_action_input_56e536dadbe233006a555275ca9619ee</name>
+            <sequence>0</sequence>
+            <sys_created_by>sheetals</sys_created_by>
+            <sys_created_on>2019-07-15 11:41:27</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>fd146ad7dbe2f3003e146583ca961981</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>sheetals</sys_updated_by>
+            <sys_updated_on>2019-07-15 11:41:27</sys_updated_on>
+            <value>1</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>priority</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Normal</label>
+            <language>en</language>
+            <name>var__m_sys_hub_action_input_56e536dadbe233006a555275ca9619ee</name>
+            <sequence>1</sequence>
+            <sys_created_by>sheetals</sys_created_by>
+            <sys_created_on>2019-07-15 11:41:27</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7d146ad7dbe2f3003e146583ca961982</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>sheetals</sys_updated_by>
+            <sys_updated_on>2019-07-15 11:41:27</sys_updated_on>
+            <value>2</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>priority</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Low</label>
+            <language>en</language>
+            <name>var__m_sys_hub_action_input_56e536dadbe233006a555275ca9619ee</name>
+            <sequence>2</sequence>
+            <sys_created_by>sheetals</sys_created_by>
+            <sys_created_on>2019-07-15 11:41:27</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>39146ad7dbe2f3003e146583ca961983</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>sheetals</sys_updated_by>
+            <sys_updated_on>2019-07-15 11:41:27</sys_updated_on>
+            <value>3</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>priority</element>
+            <name>var__m_sys_hub_action_input_56e536dadbe233006a555275ca9619ee</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>sheetals</sys_created_by>
+            <sys_created_on>2019-07-15 11:41:27</sys_created_on>
+            <sys_id>39146ad7dbe2f3003e146583ca961982</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>priority</sys_name>
+            <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+            <sys_update_name>sys_choice_var__m_sys_hub_action_input_56e536dadbe233006a555275ca9619ee_priority</sys_update_name>
+            <sys_updated_by>sheetals</sys_updated_by>
+            <sys_updated_on>2019-07-15 11:41:27</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>
