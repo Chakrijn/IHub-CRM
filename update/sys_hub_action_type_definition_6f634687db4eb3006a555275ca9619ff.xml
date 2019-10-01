@@ -40,6 +40,7 @@
         <latest_snapshot>0e240397db4f3f403e146583ca961935</latest_snapshot>
         <master_snapshot>d038f94fdbc37f406a555275ca9619e7</master_snapshot>
         <name>Delete Record</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <state>published</state>
@@ -16435,6 +16436,7 @@
         <label_cache>[{"name":"{{action.entity}}","label":"action➛Entity","type":"action","ref":""},{"name":"{{action.record_id}}","label":"action➛Record ID","type":"action","ref":""},{"name":"{{step[e9decdea-9220-44c7-99d4-14614bfe21df].record_id}}","label":"step➛Pre Processing➛record_id","type":"step","ref":""},{"name":"{{step[b971dccf-e4fc-4823-9184-61691b53574b].status}}","label":"step➛Handle Errors➛status","type":"step","ref":""},{"name":"{{step[b971dccf-e4fc-4823-9184-61691b53574b].error_message}}","label":"step➛Handle Errors➛error message","type":"step","ref":""},{"name":"{{step[9d9f979b-9986-4b4e-8a9e-4ff2747c41cb].u_version}}","label":"step➛Delete Record➛version","type":"step","ref":""},{"name":"{{step[9d9f979b-9986-4b4e-8a9e-4ff2747c41cb].response_body}}","label":"step➛Delete Record➛Response Body","type":"step","ref":""},{"name":"{{step[9d9f979b-9986-4b4e-8a9e-4ff2747c41cb].status_code}}","label":"step➛Delete Record➛Status Code","type":"step","ref":""},{"name":"{{step[9d9f979b-9986-4b4e-8a9e-4ff2747c41cb].error_message}}","label":"step➛Delete Record➛Error Message","type":"step","ref":""}]</label_cache>
         <master>true</master>
         <name>Delete Record</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <parent_action display_value="Delete Record">6f634687db4eb3006a555275ca9619ff</parent_action>

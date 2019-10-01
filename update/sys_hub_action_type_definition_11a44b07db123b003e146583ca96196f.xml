@@ -33,6 +33,7 @@
         <latest_snapshot>a1d5035bdb4f3f403e146583ca961917</latest_snapshot>
         <master_snapshot>de8f8f8fdb123b003e146583ca961963</master_snapshot>
         <name>Get Entities</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <state>published</state>
@@ -2522,6 +2523,7 @@
         <label_cache>[{"name":"{{step[e8b73e15-a520-4e18-a6cd-a72d6f064811].status_code}}","label":"step➛Get Entities➛Status Code","type":"step","ref":""},{"name":"{{step[e8b73e15-a520-4e18-a6cd-a72d6f064811].error_message}}","label":"step➛Get Entities➛Error Message","type":"step","ref":""},{"name":"{{step[e8b73e15-a520-4e18-a6cd-a72d6f064811].response_body}}","label":"step➛Get Entities➛Response Body","type":"step","ref":""},{"name":"{{step[b33958a5-41de-463f-8640-e0a39e2cdc99].tables}}","label":"step➛Handle Errors➛tables","type":"step","ref":""},{"name":"{{step[e8b73e15-a520-4e18-a6cd-a72d6f064811].u_version}}","label":"step➛Get Entities➛version","type":"step","ref":""},{"name":"{{step[b33958a5-41de-463f-8640-e0a39e2cdc99].status}}","label":"step➛Handle Errors➛status","type":"step","ref":""},{"name":"{{step[b33958a5-41de-463f-8640-e0a39e2cdc99].error_message}}","label":"step➛Handle Errors➛error_message","type":"step","ref":""}]</label_cache>
         <master>true</master>
         <name>Get Entities</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <parent_action display_value="Get Entities">11a44b07db123b003e146583ca96196f</parent_action>

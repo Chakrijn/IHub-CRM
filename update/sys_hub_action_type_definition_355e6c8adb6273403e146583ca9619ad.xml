@@ -41,6 +41,7 @@
         <latest_snapshot>c0eeb61fdb0f3f403e146583ca9619ce</latest_snapshot>
         <master_snapshot>9f5840badb0bbb403e146583ca961909</master_snapshot>
         <name>Get Case Details</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <state>published</state>
@@ -3196,6 +3197,7 @@
         <label_cache>[{"name":"{{action.case_id}}","label":"action➛Case ID","type":"action","ref":""},{"name":"{{step[113fce94-04b4-47d9-9864-9e8e4b872479].case_id}}","label":"step➛Pre Processing➛case_id","type":"step","ref":""},{"name":"{{step[b656da99-66aa-484b-ac89-bc511be12be0].u_version}}","label":"step➛Get Case Details➛version","type":"step","ref":""},{"name":"{{step[b656da99-66aa-484b-ac89-bc511be12be0].status_code}}","label":"step➛Get Case Details➛Status Code","type":"step","ref":""},{"name":"{{step[b656da99-66aa-484b-ac89-bc511be12be0].error_message}}","label":"step➛Get Case Details➛Error Message","type":"step","ref":""},{"name":"{{step[b656da99-66aa-484b-ac89-bc511be12be0].response_body}}","label":"step➛Get Case Details➛Response Body","type":"step","ref":""},{"name":"{{step[d46ffe07-7993-478a-aea6-a6c6eef2c728].status}}","label":"step➛Handle Errors➛status","type":"step","ref":""},{"name":"{{step[d46ffe07-7993-478a-aea6-a6c6eef2c728].error_message}}","label":"step➛Handle Errors➛error_message","type":"step","ref":""},{"name":"{{step[d46ffe07-7993-478a-aea6-a6c6eef2c728].case_details}}","label":"step➛Handle Errors➛case_details","type":"step","ref":""}]</label_cache>
         <master>true</master>
         <name>Get Case Details</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <parent_action display_value="Get Case Details">355e6c8adb6273403e146583ca9619ad</parent_action>

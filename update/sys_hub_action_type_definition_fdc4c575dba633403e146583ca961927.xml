@@ -39,6 +39,7 @@
         <latest_snapshot>1f4ffe1fdb0f3f403e146583ca9619b6</latest_snapshot>
         <master_snapshot>04ba0c3edb0bbb403e146583ca961977</master_snapshot>
         <name>Get Opportunity Details</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <state>published</state>
@@ -3148,6 +3149,7 @@
         <label_cache>[{"name":"{{action.opportunity_id}}","label":"action➛Opportunity ID","type":"action","ref":""},{"name":"{{step[ef33be95-86e0-469e-9fb1-33689da3bebe].opportunity_id}}","label":"step➛Pre Processing➛opportunity_id","type":"step","ref":""},{"name":"{{step[3d339f6e-6a02-4d71-8f39-162bb92a29e8].u_version}}","label":"step➛Get Opportunity Details➛version","type":"step","ref":""},{"name":"{{step[3d339f6e-6a02-4d71-8f39-162bb92a29e8].status_code}}","label":"step➛Get Opportunity Details➛Status Code","type":"step","ref":""},{"name":"{{step[3d339f6e-6a02-4d71-8f39-162bb92a29e8].error_message}}","label":"step➛Get Opportunity Details➛Error Message","type":"step","ref":""},{"name":"{{step[3d339f6e-6a02-4d71-8f39-162bb92a29e8].response_body}}","label":"step➛Get Opportunity Details➛Response Body","type":"step","ref":""},{"name":"{{step[08b273ad-22aa-4072-8b7c-d461ce1ecf27].status}}","label":"step➛Handle Errors➛status","type":"step","ref":""},{"name":"{{step[08b273ad-22aa-4072-8b7c-d461ce1ecf27].error_message}}","label":"step➛Handle Errors➛error_message","type":"step","ref":""},{"name":"{{step[08b273ad-22aa-4072-8b7c-d461ce1ecf27].opportunity_details}}","label":"step➛Handle Errors➛opportunity_details","type":"step","ref":""}]</label_cache>
         <master>true</master>
         <name>Get Opportunity Details</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <parent_action display_value="Get Opportunity Details">fdc4c575dba633403e146583ca961927</parent_action>

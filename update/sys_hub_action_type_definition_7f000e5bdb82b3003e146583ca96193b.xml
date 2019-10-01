@@ -41,6 +41,7 @@
         <latest_snapshot>f7838357db4f3f403e146583ca9619ac</latest_snapshot>
         <master_snapshot>0a4ea11bdb22f3003e146583ca9619f7</master_snapshot>
         <name>Get Records</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <state>published</state>
@@ -5924,6 +5925,7 @@
         <label_cache>[{"name":"{{action.entity}}","label":"action➛Entity","type":"action","ref":""},{"name":"{{step[b9c37153-4c41-433a-a619-2f69d97e90c3].entity}}","label":"step➛Pre Processing➛entity","type":"step","ref":""},{"name":"{{step[72f7c7d4-c655-4c72-bca0-e7e94f7946a9].u_version}}","label":"step➛Get Records➛version","type":"step","ref":""},{"name":"{{step[72f7c7d4-c655-4c72-bca0-e7e94f7946a9].status_code}}","label":"step➛Get Records➛Status Code","type":"step","ref":""},{"name":"{{step[72f7c7d4-c655-4c72-bca0-e7e94f7946a9].error_message}}","label":"step➛Get Records➛Error Message","type":"step","ref":""},{"name":"{{step[72f7c7d4-c655-4c72-bca0-e7e94f7946a9].response_body}}","label":"step➛Get Records➛Response Body","type":"step","ref":""},{"name":"{{step[d40f72c2-e9e6-4ec8-b816-51455a655212].u_version}}","label":"step➛Get Primary Attributes➛version","type":"step","ref":""},{"name":"{{step[d40f72c2-e9e6-4ec8-b816-51455a655212].status_code}}","label":"step➛Get Primary Attributes➛Status Code","type":"step","ref":""},{"name":"{{step[d40f72c2-e9e6-4ec8-b816-51455a655212].response_body}}","label":"step➛Get Primary Attributes➛Response Body","type":"step","ref":""},{"name":"{{step[d40f72c2-e9e6-4ec8-b816-51455a655212].error_message}}","label":"step➛Get Primary Attributes➛Error Message","type":"step","ref":""},{"name":"{{step[b2b95db8-ce68-440d-ada6-d0e2bd6eb9d2].primary_name_attribute}}","label":"Handle Errorsstep➛➛primary_name_attribute","type":"step","ref":""},{"name":"{{step[b2b95db8-ce68-440d-ada6-d0e2bd6eb9d2].primary_id_attribute}}","label":"Handle Errorsstep➛➛primary_id_attribute","type":"step","ref":""},{"name":"{{step[b2b95db8-ce68-440d-ada6-d0e2bd6eb9d2].entity_set_name}}","label":"Handle Errorsstep➛➛entity_set_name","type":"step","ref":""},{"name":"{{step[1218097a-b007-4a2e-b846-94fa58199d4a].tables}}","label":"step➛Handle Errors➛tables","type":"step","ref":""},{"name":"{{step[1218097a-b007-4a2e-b846-94fa58199d4a].status}}","label":"step➛Handle Errors➛status","type":"step","ref":""},{"name":"{{step[1218097a-b007-4a2e-b846-94fa58199d4a].error_message}}","label":"step➛Handle Errors➛error_message","type":"step","ref":""},{"name":"{{step[1218097a-b007-4a2e-b846-94fa58199d4a].count}}","label":"step➛Handle Errors➛count","type":"step","ref":""}]</label_cache>
         <master>true</master>
         <name>Get Records</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <parent_action display_value="Get Records">7f000e5bdb82b3003e146583ca96193b</parent_action>

@@ -39,6 +39,7 @@
         <latest_snapshot>cbc10f53db4f3f403e146583ca96199a</latest_snapshot>
         <master_snapshot>e83f4c72db4bbb403e146583ca9619ee</master_snapshot>
         <name>Get Account Details</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <state>published</state>
@@ -3208,6 +3209,7 @@
         <label_cache>[{"name":"{{action.account_id}}","label":"action➛Account ID","type":"action","ref":""},{"name":"{{step[8d4edb5d-ad4f-4404-b055-2719087d6822].u_version}}","label":"step➛Get Account Details➛version","type":"step","ref":""},{"name":"{{step[8d4edb5d-ad4f-4404-b055-2719087d6822].status_code}}","label":"step➛Get Account Details➛Status Code","type":"step","ref":""},{"name":"{{step[8d4edb5d-ad4f-4404-b055-2719087d6822].error_message}}","label":"step➛Get Account Details➛Error Message","type":"step","ref":""},{"name":"{{step[8d4edb5d-ad4f-4404-b055-2719087d6822].response_body}}","label":"step➛Get Account Details➛Response Body","type":"step","ref":""},{"name":"{{step[aa9083bc-b1ab-444d-835f-5820bbef5e82].account_id}}","label":"step➛Pre Processing➛account_id","type":"step","ref":""},{"name":"{{step[6655df1e-def6-4a98-a11f-8aebf04263a6].account_details}}","label":"step➛Handle Errors➛account_details","type":"step","ref":""},{"name":"{{step[6655df1e-def6-4a98-a11f-8aebf04263a6].status}}","label":"step➛Handle Errors➛status","type":"step","ref":""},{"name":"{{step[6655df1e-def6-4a98-a11f-8aebf04263a6].error_message}}","label":"step➛Handle Errors➛error_message","type":"step","ref":""}]</label_cache>
         <master>true</master>
         <name>Get Account Details</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <parent_action display_value="Get Account Details">6fc56719dbe2bf006a555275ca96196c</parent_action>

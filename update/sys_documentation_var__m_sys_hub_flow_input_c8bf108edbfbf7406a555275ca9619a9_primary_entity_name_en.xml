@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="primary_entity_name" label="Primary Entity Name" language="en" table="var__m_sys_hub_flow_input_c8bf108edbfbf7406a555275ca9619a9">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>primary_entity_name</element>
+            <help/>
+            <hint/>
+            <label>Primary Entity Name</label>
+            <language>en</language>
+            <name>var__m_sys_hub_flow_input_c8bf108edbfbf7406a555275ca9619a9</name>
+            <plural/>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>sanketg</sys_created_by>
+            <sys_created_on>2019-09-11 08:09:04</sys_created_on>
+            <sys_id>5cbf108edbfbf7406a555275ca9619de</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Primary Entity Name</sys_name>
+            <sys_package display_value="Microsoft Dynamics CRM" source="x_snc_microsoft_dy">77864225dba933003e146583ca9619eb</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Microsoft Dynamics CRM">77864225dba933003e146583ca9619eb</sys_scope>
+            <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_c8bf108edbfbf7406a555275ca9619a9_primary_entity_name_en</sys_update_name>
+            <sys_updated_by>sanketg</sys_updated_by>
+            <sys_updated_on>2019-09-11 08:09:04</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

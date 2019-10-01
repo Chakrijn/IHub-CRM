@@ -39,6 +39,7 @@
         <latest_snapshot>4020839fdb0f3f403e146583ca9619b3</latest_snapshot>
         <master_snapshot>63bc80fedb0bbb403e146583ca96191e</master_snapshot>
         <name>Get Lead Details</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <state>published</state>
@@ -3160,6 +3161,7 @@
         <label_cache>[{"name":"{{action.lead_id}}","label":"action➛Lead ID","type":"action","ref":""},{"name":"{{step[f4277369-4211-49e2-b5cf-c34d5ef0521c].lead_id}}","label":"step➛Pre Processing➛lead_id","type":"step","ref":""},{"name":"{{step[7ea7ec0b-135d-4622-b907-c402dbc983bd].u_version}}","label":"step➛Get Lead Details➛version","type":"step","ref":""},{"name":"{{step[7ea7ec0b-135d-4622-b907-c402dbc983bd].status_code}}","label":"step➛Get Lead Details➛Status Code","type":"step","ref":""},{"name":"{{step[7ea7ec0b-135d-4622-b907-c402dbc983bd].error_message}}","label":"step➛Get Lead Details➛Error Message","type":"step","ref":""},{"name":"{{step[7ea7ec0b-135d-4622-b907-c402dbc983bd].response_body}}","label":"step➛Get Lead Details➛Response Body","type":"step","ref":""},{"name":"{{step[3ea144d8-9950-49a2-a32a-180f100d8335].status}}","label":"step➛Handle Errors➛status","type":"step","ref":""},{"name":"{{step[3ea144d8-9950-49a2-a32a-180f100d8335].error_message}}","label":"step➛Handle Errors➛error_message","type":"step","ref":""},{"name":"{{step[3ea144d8-9950-49a2-a32a-180f100d8335].lead_details}}","label":"step➛Handle Errors➛lead_details","type":"step","ref":""}]</label_cache>
         <master>true</master>
         <name>Get Lead Details</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <parent_action display_value="Get Lead Details">bffa2031db6633403e146583ca9619d8</parent_action>

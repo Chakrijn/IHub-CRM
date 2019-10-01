@@ -40,6 +40,7 @@
         <latest_snapshot>c5010bdfdb0f3f403e146583ca961901</latest_snapshot>
         <master_snapshot>97ce4472db4bbb403e146583ca961951</master_snapshot>
         <name>Get Contact Details</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <state>published</state>
@@ -3142,6 +3143,7 @@
         <label_cache>[{"name":"{{action.contact_id}}","label":"action➛Contact ID","type":"action","ref":""},{"name":"{{step[9338a068-6100-481e-98b0-a2654dd75c68].contact_id}}","label":"step➛Pre Processing➛contact_id","type":"step","ref":""},{"name":"{{step[eaa8f923-8a0c-47aa-ab25-80a6495cc0c5].response_body}}","label":"step➛Get Contact Details➛Response Body","type":"step","ref":""},{"name":"{{step[eaa8f923-8a0c-47aa-ab25-80a6495cc0c5].status_code}}","label":"step➛Get Contact Details➛Status Code","type":"step","ref":""},{"name":"{{step[eaa8f923-8a0c-47aa-ab25-80a6495cc0c5].error_message}}","label":"step➛Get Contact Details➛Error Message","type":"step","ref":""},{"name":"{{step[e0cc8cf9-98c3-41bc-a7c8-bb1b3be1a28d].status}}","label":"step➛Handle Errors➛status","type":"step","ref":""},{"name":"{{step[e0cc8cf9-98c3-41bc-a7c8-bb1b3be1a28d].error_message}}","label":"step➛Handle Errors➛error_message","type":"step","ref":""},{"name":"{{step[eaa8f923-8a0c-47aa-ab25-80a6495cc0c5].u_version}}","label":"step➛Get Contact Details➛version","type":"step","ref":""},{"name":"{{step[e0cc8cf9-98c3-41bc-a7c8-bb1b3be1a28d].contact_details}}","label":"step➛Handle Errors➛contact_details","type":"step","ref":""}]</label_cache>
         <master>true</master>
         <name>Get Contact Details</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <parent_action display_value="Get Contact Details">7509ec7ddb2633403e146583ca9619b9</parent_action>

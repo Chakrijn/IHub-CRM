@@ -41,6 +41,7 @@
         <latest_snapshot>712787dbdb4f3f403e146583ca961904</latest_snapshot>
         <master_snapshot>729293c3db523b003e146583ca961961</master_snapshot>
         <name>Get Record Details</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <state>published</state>
@@ -16846,6 +16847,7 @@
         <label_cache>[{"name":"{{action.record_id}}","label":"action➛Record ID","type":"action","ref":""},{"name":"{{action.entity}}","label":"action➛Entity","type":"action","ref":""},{"name":"{{step[e3f25310-394b-4017-86a3-1b8b9309e464].record_id}}","label":"step➛Pre Processing➛record_id","type":"step","ref":""},{"name":"{{step[7649a6cf-481f-44f1-8960-6ae07f0b1ffc].status}}","label":"step➛Handle Errors➛status","type":"step","ref":""},{"name":"{{step[7649a6cf-481f-44f1-8960-6ae07f0b1ffc].error_message}}","label":"step➛Handle Errors➛error_message","type":"step","ref":""},{"name":"{{step[7649a6cf-481f-44f1-8960-6ae07f0b1ffc].record}}","label":"step➛Handle Errors➛record","type":"step","ref":""},{"name":"{{step[daf640ab-4400-49e2-b9c9-92fe2c5b487b].u_version}}","label":"step➛Get Record Details➛version","type":"step","ref":""},{"name":"{{step[daf640ab-4400-49e2-b9c9-92fe2c5b487b].response_body}}","label":"step➛Get Record Details➛Response Body","type":"step","ref":""},{"name":"{{step[daf640ab-4400-49e2-b9c9-92fe2c5b487b].status_code}}","label":"step➛Get Record Details➛Status Code","type":"step","ref":""},{"name":"{{step[daf640ab-4400-49e2-b9c9-92fe2c5b487b].error_message}}","label":"step➛Get Record Details➛Error Message","type":"step","ref":""},{"name":"{{step[7649a6cf-481f-44f1-8960-6ae07f0b1ffc].record_details}}","label":"step➛Handle Errors➛record_details","type":"step","ref":""}]</label_cache>
         <master>true</master>
         <name>Get Record Details</name>
+        <natlang/>
         <outputs/>
         <outputs/>
         <parent_action display_value="Get Record Details">2aa68b87db123b003e146583ca9619f3</parent_action>

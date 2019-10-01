@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity_scope">
     <oauth_entity_scope action="INSERT_OR_UPDATE">
+        <in_default_profile>true</in_default_profile>
         <name>https://snowhyd.crm8.dynamics.com/user_impersonation</name>
         <oauth_entity display_value="snowoauthcrm">6957296edbb67f003e146583ca96191e</oauth_entity>
         <oauth_entity_scope>https://snowhyd.crm8.dynamics.com/user_impersonation</oauth_entity_scope>
